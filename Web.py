@@ -72,7 +72,7 @@ url = f"https://drive.google.com/uc?id={file_id}"
 gdown.download(url, "forecasting_data.csv", quiet=False)
 
 # Now read it as a local file
-forecast_df = pd.read_csv("large_data.csv")
+forecast_df = pd.read_csv("forecasting_data.csv")
 
 # Replace negative predictions with zero
 forecast_df['PREDICTED'] = forecast_df['PREDICTED'].clip(lower=0)
