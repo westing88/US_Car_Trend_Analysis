@@ -62,9 +62,17 @@ with col2:
     st.plotly_chart(fig_post2000)
 
 
-
 # Load forecasted results
-forecast_df = pd.read_csv("/Users/weishiting/Desktop/243 Analytics Lab/Module2/forecast_results.csv")
+
+# Use your Google Drive file ID
+file_id = "1rpvvtqjFkU48JQaXif24biixEJ1gOtNr"
+url = f"https://drive.google.com/uc?id={file_id}"
+
+# Download it
+gdown.download(url, "forecasting_data.csv", quiet=False)
+
+# Now read it as a local file
+forecast_df = pd.read_csv("large_data.csv")
 
 # Replace negative predictions with zero
 forecast_df['PREDICTED'] = forecast_df['PREDICTED'].clip(lower=0)
